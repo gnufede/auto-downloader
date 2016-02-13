@@ -1,0 +1,3 @@
+config.ini
+*.pickle
+__pycache__

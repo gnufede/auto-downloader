@@ -1,0 +1,28 @@
+[Main]
+# File to store already downloaded items
+already_downloaded = ./already_downloaded.pickle
+
+[Urls]
+# Urls to start fetching items
+Sample one = http://example.com
+Kick ass torrents = https://kat.cr/usearch/%20category:highres-movies%20seeds:400%20age:week%20lang_id:2%20verified:1/?field=size&sorder=asc
+
+[Transmission]
+# Transmission configuration
+host = 192.168.10.173
+username = transmission_username
+password = transmission_password
+
+# Heuristics
+[IMDB]
+rating_minimum = 6.5
+votes_minimum = 1200
+
+[Disliked Genres]
+Horror =
+Romance =
+
+[Accepted Qualities]
+720p =
+1080p =
+
