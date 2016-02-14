@@ -90,7 +90,12 @@ class KatPage(object):
     def extract_properties(self):
         info_block = self.parsed_html.xpath(
             '//ul[contains(@class, "botmarg0")]'
-        )[0]
+        )
+
+        if not info_block:
+            return
+        else:
+            info_block = info_block[0]
 
         properties = {
             'magnet_link':
