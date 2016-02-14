@@ -103,7 +103,9 @@ class KatPage(object):
                 '//*[contains(@title, "Magnet link")]'
             )[0].get('href')
         }
+
         for li in info_block.iterchildren():
+
             if li.getchildren()[0].text == 'Detected quality:':
                 properties['quality'] = li.getchildren()[1].text
 
@@ -136,6 +138,22 @@ class KatPage(object):
             elif li.getchildren()[0].text == 'Genres:':
                 properties['genres'] = [
                     genre.text_content() for genre in li.getchildren()[1:]
+                ]
+
+        for li in info_block.getnext().iterchildren():
+            if li.getchildren()[0].text == 'Subtitles:':
+                properties['subtitles'] = [
+                    s.text_content().split()[0] for s in li.getchildren()
+                ][1:]
+
+            if li.getchildren()[0].text == 'Languages:':
+                properties['languages'] = [
+                    l.text_content().split()[0] for l in li.getchildren()
+                ][1:]
+
+            if li.getchildren()[0].text == 'Language:':
+                properties['languages'] = [
+                    li.getchildren()[1].text.split()[0]
                 ]
 
         if self.category == 'Movie':
